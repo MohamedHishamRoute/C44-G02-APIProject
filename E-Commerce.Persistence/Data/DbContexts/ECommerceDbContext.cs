@@ -18,10 +18,7 @@ namespace E_Commerce.Persistence.Data.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); //only if models configs are in the same assembly with this dbContext
-
-            //else get configs assembly not executing assembly (current assembly)
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(AnyClassInConfigsAssembly).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
         public DbSet<Product> Products { get; set; }
