@@ -22,7 +22,7 @@ namespace E_Commerce.Services.MappingProfiles.Resolvers
         {
             if (string.IsNullOrEmpty(source.PictureUrl)) return string.Empty;
 
-            if (source.PictureUrl.StartsWith("http")) return source.PictureUrl; //it already has base url so its the full url
+            if (source.PictureUrl.StartsWith("http")) return source.PictureUrl; 
 
             var BaseUrl = _appSettings.GetSection("URLs")["BaseUrl"];
             

@@ -28,5 +28,17 @@ namespace E_Commerce.Persistence.Repos
         public void Delete(T entity) => _dbContext.Remove(entity);
 
         public void Update(T entity) => _dbContext.Update(entity);
+
+        #region With Specifications
+        public async Task<IEnumerable<T>> GetAllAsync(ISpecifications<T, TKey> specifications)
+        => await SpecificationEvaluator.CreateQuery(_dbContext.Set<T>(), specifications).ToListAsync();
+
+        public async Task<T?> GetByIdAsync(ISpecifications<T, TKey> specifications)
+        => await SpecificationEvaluator.CreateQuery(_dbContext.Set<T>(), specifications).FirstOrDefaultAsync();
+
+        public async Task<int> CountAsync(ISpecifications<T, TKey> specifications)
+         => await SpecificationEvaluator.CreateQuery(_dbContext.Set<T>(), specifications).CountAsync();
+
+        #endregion
     }
 }

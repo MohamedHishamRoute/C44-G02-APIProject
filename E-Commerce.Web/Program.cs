@@ -28,7 +28,7 @@ namespace E_Commerce.Web
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-            builder.Services.AddAutoMapper(typeof(ServicesAssemblyReference).Assembly); //version 14.0
+            builder.Services.AddAutoMapper(typeof(ServicesAssemblyReference).Assembly); 
             builder.Services.AddTransient<ProductPictureUrlResolver>();
             builder.Services.AddScoped<IDataInitializer, DataInitializer>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

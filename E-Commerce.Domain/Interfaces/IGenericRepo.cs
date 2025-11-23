@@ -17,6 +17,10 @@ namespace E_Commerce.Domain.Interfaces
 
         void Delete(T entity);
 
-
+        #region With Specifications 
+        Task<IEnumerable<T>> GetAllAsync(ISpecifications<T, TKey> specifications);
+        Task<T?> GetByIdAsync(ISpecifications<T, TKey> specifications);
+        Task<int> CountAsync(ISpecifications<T, TKey> specifications);
+        #endregion
     }
 }

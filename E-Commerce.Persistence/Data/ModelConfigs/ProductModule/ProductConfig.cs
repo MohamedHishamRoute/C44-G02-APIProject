@@ -14,7 +14,7 @@ namespace E_Commerce.Persistence.Data.ModelConfigs.ProductModule
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.Property(P => P.Name)
-                   .HasColumnType("nvarchar") //default 
+                   .HasColumnType("nvarchar") 
                    .HasMaxLength(100);
 
             builder.Property(P => P.Description)

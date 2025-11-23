@@ -34,7 +34,7 @@ namespace E_Commerce.Persistence.Data.DataSeed
                 if (!hasTypes) await seedModelDataFromJsonFileAsync<ProductType, int>("types.json", _dbContext.ProductTypes);
                 await _dbContext.SaveChangesAsync();
             
-                if (!hasProducts) //data in brands and types has to be saved in database first before seeding products data
+                if (!hasProducts) 
                     await seedModelDataFromJsonFileAsync<Product, int>("products.json", _dbContext.Products);
                 await _dbContext.SaveChangesAsync();
             }
